@@ -40,10 +40,13 @@ def main():
         output.boxPrint(text,40)
 
         
-        
+        # Start of scoreboard runner
         add_points = input("Press c to cancel. Otherwise press any key to continue. ")
         while(add_points != 'c'):
+            #team1.init_graph()
             add_points = input("")
+
+            # 'a' to add points to team 1
             if(add_points == 'a'):
                team1.add_points()
                text = "{} vs. {} \n Sets: {} - {} \n Points: {} - {}".format(
@@ -52,6 +55,8 @@ def main():
                     team1.get_points(), team2.get_points())
                output.boxPrint(text,40)
                
+
+            # 's' to add points to team 2
             elif(add_points == 's'):
                 team2.add_points()
                 text = "{} vs. {} \n Sets: {} - {} \n Points: {} - {}".format(
@@ -60,6 +65,8 @@ def main():
                     team1.get_points(), team2.get_points())
                 output.boxPrint(text,40)
                 
+                
+            # 'd' to add sets to team 1
             elif(add_points == 'd'):
                 team1.add_sets()
                 text = "{} vs. {} \n Sets: {} - {} \n Points: {} - {}".format(
@@ -67,7 +74,8 @@ def main():
                     team1.get_sets(), team2.get_sets(),
                     team1.get_points(), team2.get_points())
                 output.boxPrint(text,40)
-                
+
+            # 'f' to add sets to team 2
             elif(add_points == 'f'):
                 team2.add_sets()
                 text = "{} vs. {} \n Sets: {} - {} \n Points: {} - {}".format(
@@ -75,6 +83,8 @@ def main():
                     team1.get_sets(), team2.get_sets(),
                     team1.get_points(), team2.get_points())
                 output.boxPrint(text,40)
+
+            # 'r' to reset all points
             elif(add_points == 'r'):
                 team1.reset_all()
                 team2.reset_all()

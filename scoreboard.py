@@ -1,6 +1,16 @@
+import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
+import numpy as np
+
 class scoreboard():
     """
     Keeps a record of the score for the game.
+
+    Types:
+    self.set_counter : int --> max number of sets in a game is 3
+    self.point_counter : list --> keeps record of order in which points are scored
+        Perhaps consider using a dictionary?
+    
     """
     def __init__(self, teamname):
         self.teamname = teamname
@@ -61,6 +71,7 @@ class scoreboard():
         Adds a point to a team
         """
         self.point_counter.append(1)
+        print("{}".format(self.teamname), self.point_counter)
 
     def remove_points(self):
         """
@@ -81,6 +92,37 @@ class scoreboard():
 
         self.set_counter = 0
         self.point_counter.clear()
+
+# Display
+    def init_graph(self):
+        """
+        Initializes graph
+        """
+        x = [1,2,3,4]
+        y = [1,2,3,2]
+
+        tick_spacing = 1
+        
+        fig, ax = plt.subplots(1,1)
+        plt.plot(x,y, 'k-o')
+        ax.yaxis.set_major_locator(ticker.MultipleLocator(tick_spacing))
+        
+        plt.ylabel('Margin')
+        plt.xlabel('Points')
+        plt.title('Everest Form Plot')
+        
+        plt.show()
+
+
+    """
+        hl, = plt.plot([], [])
+
+        def update_line(hl, new_data):
+            hl.set_xdata(numpy.append(hl.get_xdata(), new_data))
+            hl.set_ydata(numpy.append(hl.get_ydata(), new_data))
+            plt.draw()
+    """
+#graph()
         
 
 
